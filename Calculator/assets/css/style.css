@@ -15,8 +15,8 @@
     gap:5px;
     padding:5px;
     border:1px solid rgb(240, 239, 239);
-    background-color: rgb(249, 252, 255);
-    border-radius: 3px;
+    background-color: hwb(0 100% 0%);
+    border-radius: 3px; 
     align-items: center !important;
 }
 .container>.form-group{
@@ -29,9 +29,17 @@
     border:1px solid rgb(253, 251, 251);
     border-radius: 3px;
     width: 100%;
-    font-size: 15px;
+    font-size: 20px;
     padding: 10px;
+    color:rgb(135, 133, 133)
     /* border-radius: 20px; */
+}
+
+.container>.form-group>.btn-s{
+    font-size:15px ;
+}
+.container>.form-group>button:hover{
+     background-color: #e0ddddd4;
 }
 .container>.form-group>input{
     width: 100%;
@@ -39,5 +47,21 @@
     margin:2px 0px;
     text-align: right;
     border-radius: 3px;
+    font-size: 30px;
+    color:#393939f0;
     border:1px solid rgb(239, 237, 237);
 }
+.container>.form-group>.evaluate{
+    color:#fff;
+    background-color: rgb(178, 174, 173);
+    font-size: 27px !important;
+    font-weight: 600;
+}
+.container>.form-group>.evaluate:hover{
+    /* color:#fff !important; */
+    background-color: rgba(171, 167, 167, 0.8);
+}
+.container>.form-group>input:focus{
+    border:none !important;
+}
+
