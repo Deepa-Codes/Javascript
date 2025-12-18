@@ -1,29 +1,53 @@
-# JavaScript Calculator
+# 📝 Sign Up Form Validation
 
-A simple calculator built using **HTML, CSS, and Vanilla JavaScript**.  
-It performs basic arithmetic operations such as addition, subtraction, multiplication, division, and modulus.
+A clean, responsive sign-up form with client-side validation using vanilla JavaScript.
 
-## Features
-- Clean and simple UI
-- Button-based input
-- Supports:
-  - Addition (+)
-  - Subtraction (-)
-  - Multiplication (*)
-  - Division (/)
-  - modulus (%)
-- Clear (CLR) and Delete (DEL) functionality
-- Result evaluation using JavaScript logic
+![Live Demo](#) • ![Vanilla JS](https://img.shields.io/badge/JS-Vanilla-yellow)
 
-## Technologies Used
-- HTML
-- CSS
-- JavaScript
+## ✨ Features
+- ✅ Username validation (min 5 chars)
+- ✅ Email validation with regex
+- ✅ Strong password validation (uppercase, number, special char)
+- ✅ Confirm password matching
+- 👁️ Show/hide password toggle
+- 📱 Fully responsive design
+- ⚡ Real-time validation feedback
 
-## How to Run
-1. Clone the repository
-2. Open `index.html` in any modern browser
-3. Start calculating
+## 🚀 Quick Start
+```bash
+git clone https://github.com/Deepa-Codes/Javascript.git
+cd Javascript/signup-form-validation
+open index.html
+```
 
-## Screenshot
-<img width="1060" height="895" alt="image" src="https://github.com/user-attachments/assets/e49ae0eb-1dd3-49f3-b22c-be38a35d4493" />
+## 📁 Project Structure
+```
+signup-form-validation/
+├── index.html
+├── assets/
+│   ├── css/style.css
+│   └── js/index.js
+└── README.md
+```
+
+## 🛠️ Built With
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Font Awesome Icons
+
+## 🧠 Learning Highlights
+- DOM manipulation without libraries
+- Form validation patterns
+- Regular expressions
+- Event handling
+- Responsive UI/UX
+
+## 👤 Author
+**Deepa K** - Frontend Developer
+
+[![GitHub](https://img.shields.io/badge/GitHub-Deepa--Codes-181717)](#)
+
+---
+
+⭐ **Star this repo if you find it helpful!**
