@@ -43,6 +43,11 @@ signup-form-validation/
 - Event handling
 - Responsive UI/UX
 
+## 🧠 ScreenShot and Recordings
+
+![Sign-Up Page](image.png)
+<video controls src="Screen Recording 2025-12-18 182020.mp4" title="Title"></video>
+
 ## 👤 Author
 **Deepa K** - Frontend Developer
 
