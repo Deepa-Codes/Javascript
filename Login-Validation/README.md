@@ -1,4 +1,4 @@
-# JavaScript Calculator
+# Signup Page in Vanilla JavaScript
 
 A simple calculator built using **HTML, CSS, and Vanilla JavaScript**.  
 It performs basic arithmetic operations such as addition, subtraction, multiplication, division, and modulus.
