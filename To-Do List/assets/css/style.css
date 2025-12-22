@@ -149,17 +149,14 @@
     text-decoration: none;
 }
 
- ul.todo-list>li{
+ /* ul.todo-list>li{
     text-decoration: none;
     list-style: none;
     padding: 10px 0px;
     margin: 5px;
     border-bottom:1px solid rgb(218, 212, 212);
-}
+} */
 
- ul.todo-list>li:last-child{
-   border-bottom:none;
-}
 
  .todo-list li .text{
     display: flex;
@@ -295,9 +292,6 @@ input.edit-input{
     transform: translateY(-10px);
     animation:slideIn 1s ease forwards;
 }
-
-
-
 @keyframes slideIn{
     to{
         opacity:1;
@@ -306,12 +300,12 @@ input.edit-input{
 } */
 
 .list.edit-animate {
-    animation: editConfirm 0.25s ease;
+    animation: editConfirm 0.5s ease;
   }
   
   @keyframes editConfirm {
     0% {
-      transform: scale(0.96);
+      transform: scale(1.2);
       opacity: 0.6;
     }
     100% {
@@ -325,15 +319,54 @@ input.edit-input{
     transform: translateY(-10px);
   }
 
-  .todo-list li {
+  
+/*   
+  ul.todo-list li {
+    text-decoration: none;
+    list-style: none;
+    border-bottom: 2px solid rgba(239, 237, 237, 0.753);
+    padding: 10px 0px;
+    margin: 5px;
+    --scale: 1;
+    --translateX: 0px;
+    --translateY: 0px;
+    --x: 0px;
     opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+  
+    transform: translateX(var(--x));
+    transition: transform 300ms ease, opacity 300ms ease;
+    transform: translate(var(--translateX), var(--translateY)) scale(var(--scale));
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+    cursor: grab;
+} */
+/* 
+  .todo-list li {
+    --x: 0px;
+    opacity: 1;
+  
+    transform: translateX(var(--x));
+    transition: transform 300ms ease, opacity 300ms ease;
+  } */
+  ul.todo-list li {
+    list-style: none;
+    border-bottom: 2px solid rgba(239, 237, 237, 0.753);
+    padding: 10px 0;
+    margin: 5px;
+  
+    --scale: 1;
+    --x: 0px;
+  
+    opacity: 1;
+    transform: translateX(var(--x)) scale(var(--scale));
+    transition: transform 300ms ease, opacity 300ms ease, box-shadow 300ms ease;
+  
+    cursor: grab;
   }
   
   .todo-list li.exit {
+    --x: 80px;      /* slide to right */
     opacity: 0;
-    transform: translateX(30px);
+    /* background:red; */
   }
 
 .edit-submit {
@@ -343,4 +376,63 @@ input.edit-input{
 .edit-submit:active {
   transform: scale(0.9);
 }
-   
+ 
+/* drag and drop */
+
+ 
+  
+  .todo-list li.dragging {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  
+  .todo-list li.drag-over {
+    border-top: 2px solid rgb(54, 128, 248);
+  }
+
+  
+  
+ 
+
+
+
+.todo-list li.enter {
+    --translateY: -10px;
+    opacity: 0;
+}
+
+.todo-list li.exit {
+    --translateX: 30px;
+    opacity: 0;
+}
+  
+  /* Drop indicator */
+  .todo-list li.drag-over {
+    border-top: 3px solid rgb(54, 128, 248);
+  }
+
+
+
+ul.todo-list>li:hover{
+    text-decoration: none;
+    list-style: none;
+    padding: 10px;
+    margin: 5px;
+    border-bottom:1px solid rgb(218, 212, 212);
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+ /* ul.todo-list>li:last-child{
+   border-bottom:none;
+} */
+.todo-list li.lifted {
+    --scale: 1.05;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+  }
+
+  .todo-list li.dragging {
+    --scale: 1.08;
+    opacity: 0;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    cursor: grabbing;
+}

@@ -13,14 +13,14 @@
    <body>
       <div class="container">
         <h3 class="title">To-Do List</h3>
-         <div class="form-container">
+         <form class="form-container" autocomplete="off">
             <div>
-               <input type="text" id="taskInput" placeholder="Task to be done..." id="task_add">
+               <input type="text" id="taskInput" autocomplete="off" placeholder="Task to be done..." id="task_add">
                
                <button type="button" id="submit" >Add</button>
                 
             </div>
-         </div>
+        </form>
          <div class="list-container">
             <div class="scroll-container">
                <!-- <h6>Pending Tasks</h6> -->
@@ -34,6 +34,12 @@
             <div class="text-notification">  No Task Yet </div>
          </div>
       </div>
+<audio id="sound-add" src="./assets/audio/add.mp3"></audio>
+<audio id="sound-edit" src="./assets/audio/edit.wav"></audio>
+<audio id="sound-delete" src="./assets/audio/delete.wav"></audio>
+<audio id="sound-check" src="./assets/audio/check.wav"></audio>
+<audio id="sound-uncheck" src="./assets/audio/uncheck.wav"></audio>
+
       <script src="./assets/js/index.js" ></script>
    </body>
 </html>

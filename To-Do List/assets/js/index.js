@@ -1,32 +1,182 @@
 let submit = document.getElementById('submit');
 let element = document.getElementById('taskInput');
 let ul = document.getElementById('to-do')
+let draggedLi = null;
+let dragId = null;
 
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-submit.addEventListener('click', createTask);
+/**
+ * {
+  id: Date.now(),
+  text: 'Task name',
+  completed: false
+} 
+**/
+
+submit.addEventListener('click', addTask);
 element.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        createTask();
-    }
-  });
+    if (e.key === 'Enter') addTask();
+});
  
+function addTask(){
+    const text = element.value.trim();
+    if(!text) return;
 
-
-function createTask(){
+    tasks.unshift({
+        id:Date.now(),
+        text,
+        completed:false,
+    });
     
-let text = element.value
-if(text.trim()!=''){
+    element.value ='';
+    renderTasks()
+
+    const scrollContainer = document.querySelector('.scroll-container');
+
+  // 🔥 wait for DOM paint
+  requestAnimationFrame(() => {
+    scrollContainer.scrollTop = 0;
+  });
+}
+
+function renderTasks(){
+    ul.innerHTML='';
+    tasks.forEach(task=>{
+        const li = createTask(task);
+        ul.appendChild(li);
+    })
+    updateTaskCount()
+    saveTasks();
+}
+renderTasks();
+function saveTasks(){
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
+function playSound(type){
+    const audio = document.getElementById(`sound-${type}`);
+    audio.currentTime=0;
+    audio.play();
+}
+
+function enableDrag(li) {
+ 
+    li.addEventListener('dragstart', (e) => {
+        draggedLi = li;
+        li.classList.add('dragging');
+      
+        e.dataTransfer.setData('text/plain', '');
+        e.dataTransfer.effectAllowed = 'move';
+      })
+
+     li.addEventListener('dragend', () => {
+        li.classList.remove('dragging');
+        draggedLi = null;
+      
+        document
+          .querySelectorAll('.drag-over')
+          .forEach(el => el.classList.remove('drag-over'));
+      
+        syncOrderFromDOM();
+      });
+
+    li.addEventListener('dragover', (e) => {
+      e.preventDefault();
+  
+      if (li === draggedLi) return;
+  
+      li.classList.add('drag-over');
+  
+      // 🔥 REAL-TIME DOM MOVE
+      const rect = li.getBoundingClientRect();
+      const offset = e.clientY - rect.top;
+  
+      if (offset > rect.height / 2) {
+        ul.insertBefore(draggedLi, li.nextSibling);
+      } else {
+        ul.insertBefore(draggedLi, li);
+      }
+    });
+  
+    li.addEventListener('dragleave', () => {
+      li.classList.remove('drag-over');
+    });
+  }
+
+  function syncOrderFromDOM(){
+    const newOrder = [];
+  
+    document.querySelectorAll('#to-do li').forEach(li => {
+      const id = Number(li.dataset.id);
+      const task = tasks.find(t => t.id === id);
+      if (task) newOrder.push(task);
+    });
+  
+    tasks = newOrder;
+    saveTasks();
+  }
+
+// function enableDrag(li){
+//     li.addEventListener('dragstart', ()=>{
+//         dragId=li.dataset.id;
+//         console.log(li, dragId, 'start');
+        
+//     })
+//     li.addEventListener('dragover', (e)=> e.preventDefault())
+
+//     li.addEventListener('drop', ()=>{
+//         const dropId =li.dataset.id;
+//         // console.log(li, dragId, 'drop');
+//         syncOrderFromDOM()
+//         reorderTask(dragId, dropId);
+//     })
+// }
+
+// function syncOrderFromDOM(){
+//     const newOrder = [];
+//     document.querySelectorAll('#to-do li').forEach(li=>{
+//       const id = Number(li.dataset.id);
+//       const task = tasks.find(t=>t.id===id);
+//       if(task) newOrder.push(task);
+//     });
+//     tasks = newOrder;
+//     saveTasks();
+//   }
+
+function reorderTask(from, to){
+    console.log(from, to);
+    const fromIndex = tasks.findIndex(t=>t.id == from);
+    const toIndex = tasks.findIndex(t=>t.id == to);
+    const moved = tasks.splice(fromIndex, 1)[0];
+    tasks.splice(toIndex, 0, moved);
+
+    renderTasks();
+
+}
+
+
+function createTask(task){
 const li = document.createElement('li');
+// let text = element.value
+li.draggable = true;
+li.dataset.id = task.id;
+
+// if(text.trim()!=''){
+
 const div = document.createElement('div');
 div.className='text';
  
 const checkbox = document.createElement('input');
 checkbox.type='checkbox';
 checkbox.className='checkbox'
+checkbox.checked=task.completed;
 
 const span = document.createElement('span')
 span.className='list'
-span.innerText = text
+span.textContent = task.text;
+
+if(task.completed) span.classList.add('strike-through');
 
 const editBtn = document.createElement('button')
 editBtn.type = 'button'
@@ -37,92 +187,178 @@ delBtn.type = 'button'
 delBtn.innerHTML = '<i class="delete fa fa-trash"></i>'; 
 
 checkbox.addEventListener('change', ()=>{
-    span.classList.toggle('strike-through', checkbox.checked);
-    updateTaskCount()
+    task.completed = checkbox.checked;
+    // span.classList.toggle('strike-through', checkbox.checked);
+    if(checkbox.checked=='true') playSound('check');
+    if(checkbox.checked==false) playSound('uncheck')
+    renderTasks();
 })
-editBtn.addEventListener('click', () => editTask(span, editBtn, checkbox, delBtn));
-delBtn.addEventListener('click', () => deleteTask(li));
+editBtn.addEventListener('click', () =>
+    EditTask(task, span, editBtn, checkbox, delBtn)
+  );
+
+delBtn.addEventListener('click', () => deleteTask(task.id, li));
 
 div.append(checkbox, span, editBtn, delBtn);
 li.appendChild(div)
 
-ul.prepend(li);
+enableDrag(li);
+// ul.prepend(li);
+playSound('add');
+document.querySelector('#taskInput').focus();
 requestAnimationFrame(() => {
     li.classList.remove('enter');
   });
-
-ul.parentElement.scrollTop = 0;
-element.value='';
+return li
+// ul.parentElement.scrollTop = 0;
+// element.value='';
  
-updateTaskCount()
-}
+// updateTaskCount()
+// }
 }
 
-//edit and delete
-function editTask(span, btn, checkbox, delBtn) {
-    // already editing → save
-    if (btn.dataset.editing === 'true') {
-      const input = span.querySelector('input');
-      span.textContent = input.value.trim() || span.dataset.old;
-      // animate submit
-        span.classList.add('edit-animate');
-        span.addEventListener(
-        'animationend',
-        () => span.classList.remove('edit-animate'),
-        { once: true }
-        );
-      btn.innerHTML = '<i class="edit fa fa-pencil"></i>';
-      btn.dataset.editing = 'false';
-      checkbox.style.display='';
-      delBtn.style.display='';
-      return;
+function EditTask(task, span, btn, checkbox, delBtn){
+    if(btn.dataset.editing=== 'true'){
+        const input=span.querySelector('input');
+        task.text = input.value.trim() || task.text;
+        span.textContent = task.text;
+        span.classList.remove('edit-animate');
+    void span.offsetWidth;
+    span.classList.add('edit-animate');
+
+        btn.innerHTML = '<i class="edit fa fa-pencil"></i>';
+        btn.dataset.editing = 'false';
+        checkbox.style.display = '';
+        delBtn.style.display = '';
+        
+        playSound('edit');
+        saveTasks();
+        return;
     }
-    
-    span.dataset.old = span.textContent;
+
     checkbox.style.display='none';
     delBtn.style.display='none';
-     
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.value = span.textContent;
-    input.className = 'edit-input';
-  
-    span.textContent = '';
-    span.appendChild(input);
-    // input.select();
-    input.focus();
-  
-    btn.innerHTML = '<i class="edit-submit fa fa-chevron-right"></i>';
-    btn.dataset.editing = 'true';
-  
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        btn.click();
-      }
-    });
-  }
+    btn.dataset.editing='true';
+    btn.innerHTML = '<i class="fa fa-chevron-right edit-submit"></i>';
 
-function updateTaskCount(){
-    const checkboxes = document.querySelectorAll('.todo-list .checkbox');
-    // const total = checkboxes.length;
-   let completed = [...checkboxes].filter(cb=>cb.checked).length;
-   let pending = checkboxes.length-completed;
-     
-   document.querySelector('.text-notification').innerText = `${pending} Pending Tasks · ${completed} Completed Tasks`
+    const input= document.createElement('input');
+    input.value = task.text;
+    input.className='edit-input';
+
+    span.textContent='';
+    span.appendChild(input);
+    input.focus();
+
+    input.addEventListener('keydown', e=>{
+        if(e.key==='Enter') btn.click();
+    })
 }
 
-function deleteTask(li) {
-    li.classList.add('exit');
-console.log(li);
+// function editTask(task){
+//     const newText = prompt('Edit task', task.text);
+//     if(!newText) return;
 
+//     task.text = newText.trim();
+//     playSound('edit');
+//     renderTasks();
+// }
+
+function deleteTask(id, li) {
+    li.classList.add('exit');
+  
     li.addEventListener(
       'transitionend',
       () => {
-        console.log('transitioned');
-        
-        li.remove();
-        updateTaskCount();
+       finalize(id, li)
       },
       { once: true }
     );
+
+    setTimeout(() => {
+        if (li.isConnected) {
+          finalizeDelete(id, li);
+        }
+      }, 300);
   }
+
+  function finalize(id, li){
+    tasks = tasks.filter(t => t.id !== id);
+    saveTasks();
+    li.remove();
+    updateTaskCount();
+    playSound('delete')
+  }
+
+function updateTaskCount(){
+     
+let completed = tasks.filter(t=>t.completed).length;
+let pending = tasks.length -completed;
+console.log(completed, pending, tasks);
+ if(!tasks.length){
+document.querySelector('.text-notification').innerText = `No Tasks Yet`;
+ }
+   document.querySelector('.text-notification').innerText = `${pending} Pending Tasks · ${completed} Completed Tasks`
+}
+
+//edit and delete
+// function editTask(span, btn, checkbox, delBtn) {
+//     // already editing → save
+//     if (btn.dataset.editing === 'true') {
+//       const input = span.querySelector('input');
+//       span.textContent = input.value.trim() || span.dataset.old;
+//       // animate submit
+//         span.classList.add('edit-animate');
+//         span.addEventListener(
+//         'animationend',
+//         () => span.classList.remove('edit-animate'),
+//         { once: true }
+//         );
+//       btn.innerHTML = '<i class="edit fa fa-pencil"></i>';
+//       btn.dataset.editing = 'false';
+//       checkbox.style.display='';
+//       delBtn.style.display='';
+//       return;
+//     }
+    
+//     span.dataset.old = span.textContent;
+//     checkbox.style.display='none';
+//     delBtn.style.display='none';
+     
+//     const input = document.createElement('input');
+//     input.type = 'text';
+//     input.value = span.textContent;
+//     input.className = 'edit-input';
+  
+//     span.textContent = '';
+//     span.appendChild(input);
+//     // input.select();
+//     input.focus();
+  
+//     btn.innerHTML = '<i class="edit-submit fa fa-chevron-right"></i>';
+//     btn.dataset.editing = 'true';
+  
+//     input.addEventListener('keydown', (e) => {
+//       if (e.key === 'Enter') {
+//         btn.click();
+//       }
+//     });
+//   }
+
+
+
+// function deleteTask(li) {
+//     li.classList.add('exit');
+// console.log(li);
+
+//     li.addEventListener(
+//       'transitionend',
+//       () => {
+//         console.log('transitioned');
+        
+//         li.remove();
+//         updateTaskCount();
+//       },
+//       { once: true }
+//     );
+//   }
+
