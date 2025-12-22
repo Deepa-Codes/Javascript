@@ -8,7 +8,7 @@ Three interactive web applications built with vanilla JavaScript.
 
 - **🧮 Calculator** - [Live Demo](https://deepa-codes.github.io/javascript/calculator/)
 - **📝 Signup Validation** - [Live Demo](https://deepa-codes.github.io/javascript/signup-validation/)
-- **✅ To-Do List** - [Live Demo](https://deepa-codes.github.io/javascript/to-do-list/)
+- **✅ To-Do List** - [Live Demo](https://deepa-codes.github.io/javascript/to-do/)
 
 ## 📖 About
 
