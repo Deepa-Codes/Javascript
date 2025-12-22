@@ -3,6 +3,10 @@
 A simple calculator built using **HTML, CSS, and Vanilla JavaScript**.  
 It performs basic arithmetic operations such as addition, subtraction, multiplication, division, and modulus.
 
+## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-View_Here-2ea44f?style=for-the-badge)](https://deepa-codes.github.io/Javascript/calculator/)
+ 
+
 ## Features
 - Clean and simple UI
 - Button-based input
