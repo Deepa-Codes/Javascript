@@ -72,7 +72,7 @@ todo-task-manager/
 
 ### Data Structure
 Tasks are stored as objects:
-```javascript
+```JavaScript
 {
   id: Date.now(),      // Unique timestamp ID
   text: 'Task name',   // Task content
@@ -88,7 +88,7 @@ Tasks are stored as objects:
 - `syncOrderFromDOM()` - Syncs visual order to data
 
 ### Storage
-- Uses `localStorage` with key `'tasks'`
+- Uses `localStorage` with key `'tasks.'`
 - Automatic saving on every change
 - JSON serialization for complex data
  
@@ -108,18 +108,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Icons by [Font Awesome](https://fontawesome.com/)
 - Sound effects from [freesound.org](https://freesound.org/)
-- Inspired by various task management applications
 - Built with vanilla JavaScript for learning purposes
 
-## 👨‍💻 Author
+## 🧠 ScreenShot and Recordings
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+![Sign-Up Page](image.png)
+<video controls src="Screen Recording 2025-12-18 182020.mp4" title="Title"></video>
 
----
+## 👤 Author
+**Deepa K** - Frontend Developer
 
-⭐ **If you found this project helpful, please give it a star!** ⭐
+[![GitHub](https://img.shields.io/badge/GitHub-Deepa--Codes-181717?logo=github)](https://github.com/Deepa-Codes)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Deepa_K-0077B5?logo=linkedin)](https://www.linkedin.com/in/deepa-k-a56a74115/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Deepa_K-FF6B6B?logo=netlify)](https://deepa-k.netlify.app/)
+⭐ **Star this repo if you find it helpful!**
 
 **Happy Task Managing!** 📋✨
