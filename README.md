@@ -2,6 +2,8 @@
 
 Three interactive web applications built with vanilla JavaScript.
 
+- **🌐 Projects** - [Live Demo](https://deepa-codes.github.io/Javascript/)
+  
 ## 🚀 Live Demos
 
 - **🧮 Calculator** - [Live Demo](https://deepa-codes.github.io/javascript/calculator/)
