@@ -112,8 +112,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🧠 ScreenShot and Recordings
 
-![TO-DO List -Task Manager](<img width="1896" height="906" alt="Screenshot 2025-12-21 235051" src="https://github.com/user-attachments/assets/442728c7-0818-48e2-8042-bca86d031bff" />
-)
+<img width="1896" height="906" alt="Screenshot 2025-12-21 235051" src="https://github.com/user-attachments/assets/ff85fe9d-9a54-452c-a22d-3eb1a4690b37" />
+
 <video controls src="Screen Recording 2025-12-18 182020.mp4" title="Title"></video>
 
 ## 👤 Author
