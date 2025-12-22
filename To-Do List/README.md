@@ -1,58 +1,125 @@
-# 📝 Javascript Todo List
+# 📝 To-Do List Task Manager
 
-A clean, responsive sign-up form with client-side validation using vanilla JavaScript.
+A sleek, drag-and-drop-enabled task manager built with vanilla JavaScript, HTML, and CSS. Features local storage persistence, sound effects, and smooth animations.
 
-![Live Demo](#) • ![Vanilla JS](https://img.shields.io/badge/JS-Vanilla-yellow)
+![To-Do List Preview](https://img.shields.io/badge/Status-Active-success) ![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## ✨ Features
-- ✅ Username validation (min 5 chars)
-- ✅ Email validation with regex
-- ✅ Strong password validation (uppercase, number, special char)
-- ✅ Confirm password matching
-- 👁️ Show/hide password toggle
-- 📱 Fully responsive design
-- ⚡ Real-time validation feedback
+
+### ✅ Core Functionality
+- **Add Tasks** - Quick input with Enter key or button click
+- **Edit Tasks** - Inline editing with visual feedback
+- **Delete Tasks** - Smooth exit animations with sound
+- **Mark Complete** - Checkbox toggle with strike-through styling
+- **Task Counter** - Real-time pending/completed task tracking
+
+### 🎯 Advanced Features
+- **Drag & Drop Reordering** - Intuitive task rearrangement
+- **Local Storage** - Tasks persist between browser sessions
+- **Sound Effects** - Audio feedback for actions (add, complete, edit, delete)
+- **Keyboard Shortcuts** - Enter to add/submit, Esc to cancel
+- **Responsive Design** - Works on desktop and mobile devices
+
+### 🎨 UI/UX Highlights
+- **Smooth Animations** - Enter/exit transitions and edit effects
+- **Visual Feedback** - Drag states and hover effects
+- **Auto-scroll** - New tasks appear at top with smooth scrolling
+- **Clean Interface** - Minimalist design focused on usability
 
 ## 🚀 Quick Start
-```bash
-git clone https://github.com/Deepa-Codes/Javascript.git
-cd Javascript/signup-form-validation
-open index.html
+
+### Prerequisites
+- Modern web browser with JavaScript enabled
+- Local server (for local development)
+ 
+## 🎮 How to Use
+
+### Adding Tasks
+1. Type your task in the input field
+2. Press `Enter` or click the "Add" button
+3. Task appears at the top of the list with an animation
+
+### Managing Tasks
+- **Complete**: Click the checkbox
+- **Edit**: Click the pencil icon (✏️), edit text, press Enter or click →
+- **Delete**: Click the trash icon (🗑️)
+- **Reorder**: Drag and drop tasks to desired position
+
+### Keyboard Shortcuts
+- `Enter` - Add new task / Save edit
+- `Esc` - Cancel editing (when in edit mode)
+
+## 🏗️ Project Structure
+
+```
+todo-task-manager/
+│
+├── index.html          # Main HTML file
+├── style.css           # All styles
+├── script.js           # Core JavaScript logic
+├── sounds/             # Sound effects directory
+│   ├── add.mp3
+│   ├── check.mp3
+│   ├── delete.mp3
+│   ├── edit.mp3
+│   └── uncheck.mp3
+│
+├── README.md           # This file
+└── assets/             # Optional: images/icons
 ```
 
-## 📁 Project Structure
+## 🔧 Technical Implementation
+
+### Data Structure
+Tasks are stored as objects:
+```javascript
+{
+  id: Date.now(),      // Unique timestamp ID
+  text: 'Task name',   // Task content
+  completed: false     // Completion status
+}
 ```
-signup-form-validation/
-├── index.html
-├── assets/
-│   ├── css/style.css
-│   └── js/index.js
-└── README.md
-```
 
-## 🛠️ Built With
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Font Awesome Icons
+### Key Functions
+- `addTask()` - Creates new tasks
+- `renderTasks()` - Updates UI from data
+- `saveTasks()` - Persists to localStorage
+- `enableDrag()` - Implements drag-and-drop
+- `syncOrderFromDOM()` - Syncs visual order to data
 
-## 🧠 Learning Highlights
-- DOM manipulation without libraries
-- Form validation patterns
-- Regular expressions
-- Event handling
-- Responsive UI/UX
+### Storage
+- Uses `localStorage` with key `'tasks'`
+- Automatic saving on every change
+- JSON serialization for complex data
+ 
+### Changing Sounds
+Replace audio files in `sounds/` directory:
+- `add.mp3` - When adding new task
+- `check.mp3` - When marking complete
+- `uncheck.mp3` - When unmarking task
+- `edit.mp3` - When saving edit
+- `delete.mp3` - When deleting task
+ 
+## 📄 License
 
-## 🧠 ScreenShot and Recordings
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-![Sign-Up Page](image.png)
-<video controls src="Screen Recording 2025-12-18 182020.mp4" title="Title"></video>
+## 🙏 Acknowledgments
 
-## 👤 Author
-**Deepa K** - Frontend Developer
+- Icons by [Font Awesome](https://fontawesome.com/)
+- Sound effects from [freesound.org](https://freesound.org/)
+- Inspired by various task management applications
+- Built with vanilla JavaScript for learning purposes
 
-[![GitHub](https://img.shields.io/badge/GitHub-Deepa--Codes-181717)](#)
+## 👨‍💻 Author
+
+**Your Name**
+- GitHub: [@yourusername](https://github.com/yourusername)
+- Portfolio: [yourportfolio.com](https://yourportfolio.com)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
 
 ---
 
-⭐ **Star this repo if you find it helpful!**
+⭐ **If you found this project helpful, please give it a star!** ⭐
+
+**Happy Task Managing!** 📋✨
