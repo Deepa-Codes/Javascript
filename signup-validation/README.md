@@ -1,9 +1,10 @@
 # 📝 Sign Up Form Validation
 
 A clean, responsive sign-up form with client-side validation using vanilla JavaScript.
-[![Live Demo](https://deepa-codes.github.io/Javascript/signup-validation/)](To-Do Task Manager)
-[![Vanilla JS](https://img.shields.io/badge/JS-Vanilla-yellow)]
 
+## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-View_Here-2ea44f?style=for-the-badge)](https://deepa-codes.github.io/javascript/signup-validation/)
+ 
 ## ✨ Features
 - ✅ Username validation (min 5 chars)
 - ✅ Email validation with regex
