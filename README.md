@@ -1,31 +1,22 @@
-## 🌐 Live Demos
+# JavaScript Projects
 
-### 📁 JavaScript Projects Portfolio
-[**View All Projects**](https://deepa-codes.github.io/javascript/)
+Three interactive web applications built with vanilla JavaScript.
 
-### Individual Projects:
-| Project | Live Demo |
-|---------|-----------|-------------|
-| **🧮 Calculator** | [Live Demo](https://deepa-codes.github.io/javascript/calculator/)  |
-| **📝 Signup Validation** | [Live Demo](https://deepa-codes.github.io/javascript/signup-validation/) |
-| **✅ To-Do List** | [Live Demo](https://deepa-codes.github.io/javascript/to-do-list/) | 
+## 🚀 Live Demos
 
-## 📂 Projects
+- **🧮 Calculator** - [Live Demo](https://deepa-codes.github.io/javascript/calculator/)
+- **📝 Signup Validation** - [Live Demo](https://deepa-codes.github.io/javascript/signup-validation/)
+- **✅ To-Do List** - [Live Demo](https://deepa-codes.github.io/javascript/to-do-list/)
 
-### 🔐 Signup Validation  
-**Description**: A clean, responsive sign-up form with client-side validation using vanilla JavaScript.  
-**Features**: Real-time validation, error highlighting, responsive design.  
-**Tech**: HTML5, CSS3, Vanilla JavaScript  
-**Demo**: [🌐 Live Demo](https://deepa-codes.github.io/javascript/signup-validation/) | [📂 Source Code](./signup-validation/)
+## 📖 About
 
-### 🧮 Calculator  
-**Description**: A fully functional calculator performing basic arithmetic operations.  
-**Features**: Keyboard support, responsive layout, clear visual feedback.  
-**Tech**: HTML5, CSS3, Vanilla JavaScript  
-**Demo**: [🌐 Live Demo](https://deepa-codes.github.io/javascript/calculator/) | [📂 Source Code](./calculator/)
+This repository contains practical JavaScript projects created to master fundamental web development concepts. Each project is built without frameworks, focusing on core browser APIs and clean code practices.
 
-### ✅ To-Do List  
-**Description**: Feature-rich task manager with drag-and-drop functionality.  
-**Features**: Local storage, sound effects, task reordering, completion tracking.  
-**Tech**: HTML5, CSS3, Vanilla JavaScript  
-**Demo**: [🌐 Live Demo](https://deepa-codes.github.io/javascript/to-do-list/) | [📂 Source Code](./to-do-list/)
+## 👤 Author
+
+**Deepa K**  
+[GitHub](https://github.com/Deepa-Codes) • [LinkedIn](https://www.linkedin.com/in/deepa-k-a56a74115/) • [Portfolio](https://deepa-k.netlify.app/)
+
+---
+
+*Learning-focused projects • Pure JavaScript • Responsive Design*
