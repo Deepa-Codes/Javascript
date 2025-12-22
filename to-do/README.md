@@ -2,7 +2,8 @@
 
 A sleek, drag-and-drop-enabled task manager built with vanilla JavaScript, HTML, and CSS. Features local storage persistence, sound effects, and smooth animations.
 
-![To-Do List Preview](https://img.shields.io/badge/Status-Active-success) ![License](https://img.shields.io/badge/License-MIT-blue)
+## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-View_Here-2ea44f?style=for-the-badge)](https://deepa-codes.github.io/Javascript/to-do/)
 
 ## ✨ Features
 
@@ -103,6 +104,9 @@ Replace audio files in `sounds/` directory:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+ 
+![License](https://img.shields.io/badge/License-MIT-blue)
+
 
 ## 🙏 Acknowledgments
 
