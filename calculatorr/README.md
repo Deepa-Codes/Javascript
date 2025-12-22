@@ -27,3 +27,13 @@ It performs basic arithmetic operations such as addition, subtraction, multiplic
 
 ## Screenshot
 <img width="1060" height="895" alt="image" src="https://github.com/user-attachments/assets/e49ae0eb-1dd3-49f3-b22c-be38a35d4493" />
+ 
+## 👤 Author
+**Deepa K** - Frontend Developer
+
+[![GitHub](https://img.shields.io/badge/GitHub-Deepa--Codes-181717?logo=github)](https://github.com/Deepa-Codes)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Deepa_K-0077B5?logo=linkedin)](https://www.linkedin.com/in/deepa-k-a56a74115/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Deepa_K-FF6B6B?logo=netlify)](https://deepa-k.netlify.app/)
+
+⭐ **Star this repo if you find it helpful!** ⭐
+

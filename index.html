@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepa's JavaScript Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .portfolio-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            color: #667eea;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        .projects-title {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .projects-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .project-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .project-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .project-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .footer {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-container {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <div class="header">
+            <!-- Replace with your image or remove this div -->
+            <div style="width:120px; height:120px; border-radius:50%; background:#667eea; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>Deepa's JavaScript Projects</h1>
+            <p>A collection of interactive web applications built with vanilla JavaScript</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Deepa-Codes" class="social-icon" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/deepa-k-a56a74115/" class="social-icon" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://deepa-k.netlify.app/" class="social-icon" target="_blank">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        </div>
+
+        <h2 class="projects-title">My Projects</h2>
+        
+        <div class="projects-grid">
+            <!-- Calculator Project -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Calculator</h3>
+                <p>A fully functional calculator built with vanilla JavaScript. Perform basic arithmetic operations with a clean, responsive interface.</p>
+                <a href="calculator/index.html" class="project-btn" target="_blank">View Live Demo</a>
+            </div>
+            
+            <!-- Signup Validation Project -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Signup Validation</h3>
+                <p>A responsive signup form with real-time validation. Provides instant feedback on user input with custom validation messages.</p>
+                <a href="signup-validation/index.html" class="project-btn" target="_blank">View Live Demo</a>
+            </div>
+            
+            <!-- To-Do List Project -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>To-Do List</h3>
+                <p>A feature-rich task manager with drag-and-drop functionality, local storage, and sound effects. Add, edit, delete, and reorder tasks.</p>
+                <a href="to-do-list/index.html" class="project-btn" target="_blank">View Live Demo</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with <i class="fas fa-heart" style="color:#e74c3c;"></i> by Deepa K | Frontend Developer</p>
+            <p>All projects built with vanilla JavaScript, HTML5, and CSS3</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple hover effect enhancement
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.project-icon i');
+                icon.style.transform = 'scale(1.2)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.project-icon i');
+                icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
