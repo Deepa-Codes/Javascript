@@ -113,8 +113,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🧠 ScreenShot and Recordings
 
 <img width="1896" height="906" alt="Screenshot 2025-12-21 235051" src="https://github.com/user-attachments/assets/ff85fe9d-9a54-452c-a22d-3eb1a4690b37" />
-
-<video controls src="Screen Recording 2025-12-18 182020.mp4" title="Title"></video>
+ 
 
 ## 👤 Author
 **Deepa K** - Frontend Developer
