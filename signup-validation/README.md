@@ -2,7 +2,7 @@
 
 A clean, responsive sign-up form with client-side validation using vanilla JavaScript.
 
-![Live Demo](#) • ![Vanilla JS](https://img.shields.io/badge/JS-Vanilla-yellow)
+![Live Demo](https://deepa-codes.github.io/Javascript/signup-validation/) • ![Vanilla JS](https://img.shields.io/badge/JS-Vanilla-yellow)
 
 ## ✨ Features
 - ✅ Username validation (min 5 chars)
