@@ -116,34 +116,7 @@ function enableDrag(li) {
     tasks = newOrder;
     saveTasks();
   }
-
-// function enableDrag(li){
-//     li.addEventListener('dragstart', ()=>{
-//         dragId=li.dataset.id;
-//         console.log(li, dragId, 'start');
-        
-//     })
-//     li.addEventListener('dragover', (e)=> e.preventDefault())
-
-//     li.addEventListener('drop', ()=>{
-//         const dropId =li.dataset.id;
-//         // console.log(li, dragId, 'drop');
-//         syncOrderFromDOM()
-//         reorderTask(dragId, dropId);
-//     })
-// }
-
-// function syncOrderFromDOM(){
-//     const newOrder = [];
-//     document.querySelectorAll('#to-do li').forEach(li=>{
-//       const id = Number(li.dataset.id);
-//       const task = tasks.find(t=>t.id===id);
-//       if(task) newOrder.push(task);
-//     });
-//     tasks = newOrder;
-//     saveTasks();
-//   }
-
+ 
 function reorderTask(from, to){
     console.log(from, to);
     const fromIndex = tasks.findIndex(t=>t.id == from);
@@ -154,7 +127,6 @@ function reorderTask(from, to){
     renderTasks();
 
 }
-
 
 function createTask(task){
 const li = document.createElement('li');
@@ -203,18 +175,14 @@ div.append(checkbox, span, editBtn, delBtn);
 li.appendChild(div)
 
 enableDrag(li);
-// ul.prepend(li);
+ 
 playSound('add');
 document.querySelector('#taskInput').focus();
 requestAnimationFrame(() => {
     li.classList.remove('enter');
   });
 return li
-// ul.parentElement.scrollTop = 0;
-// element.value='';
  
-// updateTaskCount()
-// }
 }
 
 function EditTask(task, span, btn, checkbox, delBtn){
@@ -253,16 +221,7 @@ function EditTask(task, span, btn, checkbox, delBtn){
         if(e.key==='Enter') btn.click();
     })
 }
-
-// function editTask(task){
-//     const newText = prompt('Edit task', task.text);
-//     if(!newText) return;
-
-//     task.text = newText.trim();
-//     playSound('edit');
-//     renderTasks();
-// }
-
+ 
 function deleteTask(id, li) {
     li.classList.add('exit');
   
@@ -299,66 +258,5 @@ document.querySelector('.text-notification').innerText = `No Tasks Yet`;
  }
    document.querySelector('.text-notification').innerText = `${pending} Pending Tasks · ${completed} Completed Tasks`
 }
-
-//edit and delete
-// function editTask(span, btn, checkbox, delBtn) {
-//     // already editing → save
-//     if (btn.dataset.editing === 'true') {
-//       const input = span.querySelector('input');
-//       span.textContent = input.value.trim() || span.dataset.old;
-//       // animate submit
-//         span.classList.add('edit-animate');
-//         span.addEventListener(
-//         'animationend',
-//         () => span.classList.remove('edit-animate'),
-//         { once: true }
-//         );
-//       btn.innerHTML = '<i class="edit fa fa-pencil"></i>';
-//       btn.dataset.editing = 'false';
-//       checkbox.style.display='';
-//       delBtn.style.display='';
-//       return;
-//     }
-    
-//     span.dataset.old = span.textContent;
-//     checkbox.style.display='none';
-//     delBtn.style.display='none';
-     
-//     const input = document.createElement('input');
-//     input.type = 'text';
-//     input.value = span.textContent;
-//     input.className = 'edit-input';
-  
-//     span.textContent = '';
-//     span.appendChild(input);
-//     // input.select();
-//     input.focus();
-  
-//     btn.innerHTML = '<i class="edit-submit fa fa-chevron-right"></i>';
-//     btn.dataset.editing = 'true';
-  
-//     input.addEventListener('keydown', (e) => {
-//       if (e.key === 'Enter') {
-//         btn.click();
-//       }
-//     });
-//   }
-
-
-
-// function deleteTask(li) {
-//     li.classList.add('exit');
-// console.log(li);
-
-//     li.addEventListener(
-//       'transitionend',
-//       () => {
-//         console.log('transitioned');
-        
-//         li.remove();
-//         updateTaskCount();
-//       },
-//       { once: true }
-//     );
-//   }
+ 
 

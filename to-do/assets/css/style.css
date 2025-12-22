@@ -149,15 +149,6 @@
     text-decoration: none;
 }
 
- /* ul.todo-list>li{
-    text-decoration: none;
-    list-style: none;
-    padding: 10px 0px;
-    margin: 5px;
-    border-bottom:1px solid rgb(218, 212, 212);
-} */
-
-
  .todo-list li .text{
     display: flex;
     align-items: center;
@@ -285,19 +276,7 @@ input.edit-input{
     font-size: 14px;
     text-align: center;
 }
- 
-/* animation when item insertion */
-/* .todo-list li{
-    opacity: 0;
-    transform: translateY(-10px);
-    animation:slideIn 1s ease forwards;
-}
-@keyframes slideIn{
-    to{
-        opacity:1;
-        transform: translateY(0);
-    }
-} */
+  
 
 .list.edit-animate {
     animation: editConfirm 0.5s ease;
@@ -318,35 +297,7 @@ input.edit-input{
     opacity: 0;
     transform: translateY(-10px);
   }
-
-  
-/*   
-  ul.todo-list li {
-    text-decoration: none;
-    list-style: none;
-    border-bottom: 2px solid rgba(239, 237, 237, 0.753);
-    padding: 10px 0px;
-    margin: 5px;
-    --scale: 1;
-    --translateX: 0px;
-    --translateY: 0px;
-    --x: 0px;
-    opacity: 1;
-  
-    transform: translateX(var(--x));
-    transition: transform 300ms ease, opacity 300ms ease;
-    transform: translate(var(--translateX), var(--translateY)) scale(var(--scale));
-    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
-    cursor: grab;
-} */
-/* 
-  .todo-list li {
-    --x: 0px;
-    opacity: 1;
-  
-    transform: translateX(var(--x));
-    transition: transform 300ms ease, opacity 300ms ease;
-  } */
+ 
   ul.todo-list li {
     list-style: none;
     border-bottom: 2px solid rgba(239, 237, 237, 0.753);
@@ -376,10 +327,6 @@ input.edit-input{
 .edit-submit:active {
   transform: scale(0.9);
 }
- 
-/* drag and drop */
-
- 
   
   .todo-list li.dragging {
     opacity: 0.5;
@@ -389,13 +336,7 @@ input.edit-input{
   .todo-list li.drag-over {
     border-top: 2px solid rgb(54, 128, 248);
   }
-
-  
-  
  
-
-
-
 .todo-list li.enter {
     --translateY: -10px;
     opacity: 0;
@@ -422,9 +363,7 @@ ul.todo-list>li:hover{
     transform: scale(1.02);
     box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
- /* ul.todo-list>li:last-child{
-   border-bottom:none;
-} */
+ 
 .todo-list li.lifted {
     --scale: 1.05;
     box-shadow: 0 12px 24px rgba(0,0,0,0.18);
